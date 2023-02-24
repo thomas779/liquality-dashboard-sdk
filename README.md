@@ -1,35 +1,35 @@
-# [Argon Dashboard Chakra](https://demos.creative-tim.com/argon-dashboard-chakra) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](10)
+# [liquality Dashboard Chakra](https://demos.creative-tim.com/liquality-dashboard-chakra) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](10)
 
-![version](https://img.shields.io/badge/version-1.0.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/argon-dashboard-chakra.svg?maxAge=2592000)](https://github.com/creativetimofficial/argon-dashboard-chakra/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/argon-dashboard-chakra.svg?maxAge=2592000)](https://github.com/creativetimofficial/argon-dashboard-chakra/issues?q=is%3Aissue+is%3Aclosed)
+![version](https://img.shields.io/badge/version-1.0.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/liquality-dashboard-chakra.svg?maxAge=2592000)](https://github.com/creativetimofficial/liquality-dashboard-chakra/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/liquality-dashboard-chakra.svg?maxAge=2592000)](https://github.com/creativetimofficial/liquality-dashboard-chakra/issues?q=is%3Aissue+is%3Aclosed)
 
-![Product Gif](https://i.ibb.co/WPpvjCn/argon-dashboard-chakra-free.png)
+![Product Gif](https://i.ibb.co/WPpvjCn/liquality-dashboard-chakra-free.png)
 
-Most trendiest, complex and innovative Free Chakra UI Dashboard Made by [Simmmple](https://simmmple.com?ref=readme-argonchakra) & [Creative Tim](https://creative-tim.com/?ref=readme-argonchakra). Check our latest Free Chakra UI Dashboard.
+Most trendiest, complex and innovative Free Chakra UI Dashboard Made by [Simmmple](https://simmmple.com?ref=readme-liqualitychakra) & [Creative Tim](https://creative-tim.com/?ref=readme-liqualitychakra). Check our latest Free Chakra UI Dashboard.
 
-Start your Development with an Innovative Admin Template for Chakra UI and React. If you like the look & feel of the hottest design trend right now, Argon Dashboard Chakra, you will fall in love with this dashboard! It features a huge number of components built to fit together and look amazing.
+Start your Development with an Innovative Admin Template for Chakra UI and React. If you like the look & feel of the hottest design trend right now, liquality Dashboard Chakra, you will fall in love with this dashboard! It features a huge number of components built to fit together and look amazing.
 
 **Fully Coded Elements**
 
-Argon Dashboard Chakra is built with over 70+ frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining. All components can take variations in color, which you can easily modify using JSS files and classes. You will save a lot of time going from prototyping to full-functional code because all elements are implemented. This Premium Chakra UI Dashboard is coming with prebuilt design blocks, so the development process is seamless, switching from our pages to the real website is very easy to be done.
+liquality Dashboard Chakra is built with over 70+ frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining. All components can take variations in color, which you can easily modify using JSS files and classes. You will save a lot of time going from prototyping to full-functional code because all elements are implemented. This Premium Chakra UI Dashboard is coming with prebuilt design blocks, so the development process is seamless, switching from our pages to the real website is very easy to be done.
 
-Check all components <a href="https://demos.creative-tim.com/docs-argon-dashboard-chakra?ref=readme-argonchakra" target="_blank">here</a>.
+Check all components <a href="https://demos.creative-tim.com/docs-liquality-dashboard-chakra?ref=readme-liqualitychakra" target="_blank">here</a>.
 
 **Documentation built by Developers**
 
 Each element is well presented in a very complex documentation.
-You can read more about the <a href="https://demos.creative-tim.com/docs-argon-dashboard-chakra?ref=readme-argonchakra" target="_blank">documentation here</a>.
+You can read more about the <a href="https://demos.creative-tim.com/docs-liquality-dashboard-chakra?ref=readme-liqualitychakra" target="_blank">documentation here</a>.
 
 **Example Pages**
 
-If you want to get inspiration or just show something directly to your clients, you can jump-start your development with our pre-built example pages. Every page is spaced well, with attractive layouts and pleasing shapes. From specially designed dashboards for smart homes, virtual reality, and automotives to CRM admins, Argon Dashboard Chakra UI has everything you need to quickly set up an amazing project.
+If you want to get inspiration or just show something directly to your clients, you can jump-start your development with our pre-built example pages. Every page is spaced well, with attractive layouts and pleasing shapes. From specially designed dashboards for smart homes, virtual reality, and automotives to CRM admins, liquality Dashboard Chakra UI has everything you need to quickly set up an amazing project.
 
-View <a href="https://demos.creative-tim.com/argon-dashboard-chakra?ref=readme-argonchakra" target="_blank">example pages here</a>.
+View <a href="https://demos.creative-tim.com/liquality-dashboard-chakra?ref=readme-liqualitychakra" target="_blank">example pages here</a>.
 
 **HELPFUL LINKS**
 
-- View <a href="https://github.com/creativetimofficial/argon-dashboard-chakra" target="_blank">Github Repository</a>
+- View <a href="https://github.com/creativetimofficial/liquality-dashboard-chakra" target="_blank">Github Repository</a>
 
-- Check <a href="https://www.creative-tim.com/knowledge-center?ref=readme-argonchakra" target="_blank">FAQ Page</a>
+- Check <a href="https://www.creative-tim.com/knowledge-center?ref=readme-liqualitychakra" target="_blank">FAQ Page</a>
 
 #### Special thanks
 
@@ -45,7 +45,7 @@ Let us know your thoughts below. And good luck with development!
 
 ## Table of Contents
 
-- [Argon Dashboard Chakra] (https://demos.creative-tim.com/argon-dashboard-chakra/?ref=readme-argonchakra)
+- [liquality Dashboard Chakra] (https://demos.creative-tim.com/liquality-dashboard-chakra/?ref=readme-liqualitychakra)
 - [Table of Contents](#table-of-contents)
 - [Versions](#versions)
 - [Demo](#demo)
@@ -61,21 +61,21 @@ Let us know your thoughts below. And good luck with development!
 
 ## Versions
 
-[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-chakra-react?ref=readme-argonchakra)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-chakra?ref=readme-argonchakra)
+[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/liquality-dashboard-chakra-react?ref=readme-liqualitychakra)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/liquality-dashboard-chakra?ref=readme-liqualitychakra)
 
 | Bootstrap | Chakra |
 | --- | --- |
-| [![Argon Dashboard Bootstrap](https://s3.amazonaws.com/creativetim_bucket/products/96/original/argon-dashboard-2.jpg?1643114907)](https://www.creative-tim.com/product/argon-dashboard?ref=readme-argonchakra) | [![Argon Dashboard Chakra](https://i.ibb.co/WPpvjCn/argon-dashboard-chakra-free.png)](https://www.creative-tim.com/product/argon-dashboard-chakra?ref=readme-argonchakra) 
+| [![liquality Dashboard Bootstrap](https://s3.amazonaws.com/creativetim_bucket/products/96/original/liquality-dashboard-2.jpg?1643114907)](https://www.creative-tim.com/product/liquality-dashboard?ref=readme-liqualitychakra) | [![liquality Dashboard Chakra](https://i.ibb.co/WPpvjCn/liquality-dashboard-chakra-free.png)](https://www.creative-tim.com/product/liquality-dashboard-chakra?ref=readme-liqualitychakra) 
 
 ## Demo
 
-[View all Pages](https://demos.creative-tim.com/argon-dashboard-chakra?ref=readme-argonchakra).
+[View all Pages](https://demos.creative-tim.com/liquality-dashboard-chakra?ref=readme-liqualitychakra).
 
 # Quick start
 
 Quick start options:
 
-- Buy from [Creative Tim](https://www.creative-tim.com/product/argon-dashboard-chakra?ref=readme-argonchakra).
+- Buy from [Creative Tim](https://www.creative-tim.com/product/liquality-dashboard-chakra?ref=readme-liqualitychakra).
 
 ## Terminal Commands
 
@@ -84,14 +84,14 @@ Quick start options:
 
 ## Documentation
 
-The documentation for the Argon Dashboard Chakra is hosted at our [website](https://demos.creative-tim.com/docs-argon-dashboard-chakra?ref=readme-argonchakra).
+The documentation for the liquality Dashboard Chakra is hosted at our [website](https://demos.creative-tim.com/docs-liquality-dashboard-chakra?ref=readme-liqualitychakra).
 
 ## File Structure
 
 Within the download you'll find the following directories and files:
 
 ```
-argon-dashboard-chakra/
+liquality-dashboard-chakra/
 ├── .gitattributes
 ├── .gitigonore
 ├── CHANGELOG.md
@@ -202,42 +202,42 @@ At present, we officially aim to support the last two versions of the following 
 
 ## Resources
 
-- [Live Preview](https://demos.creative-tim.com/argon-dashboard-chakra?ref=readme-argonchakra)
-- [Buy Page](https://www.creative-tim.com/product/argon-dashboard-chakra-pro?ref=readme-argonchakra)
-- License Agreement: <https://www.creative-tim.com/license?ref=readme-argonchakra>
-- Documentation is [here](https://demos.creative-tim.com/docs-argon-dashboard-chakra?ref=readme-argonchakra)
-- [Support](https://www.creative-tim.com/contact-us?ref=readme-argonchakra)
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/argon-dashboard-chakra/issues)
+- [Live Preview](https://demos.creative-tim.com/liquality-dashboard-chakra?ref=readme-liqualitychakra)
+- [Buy Page](https://www.creative-tim.com/product/liquality-dashboard-chakra-pro?ref=readme-liqualitychakra)
+- License Agreement: <https://www.creative-tim.com/license?ref=readme-liqualitychakra>
+- Documentation is [here](https://demos.creative-tim.com/docs-liquality-dashboard-chakra?ref=readme-liqualitychakra)
+- [Support](https://www.creative-tim.com/contact-us?ref=readme-liqualitychakra)
+- Issues: [Github Issues Page](https://github.com/creativetimofficial/liquality-dashboard-chakra/issues)
 
 ## Reporting Issues
 
-We use GitHub Issues as the official bug tracker for the Argon Dashboard Chakra. Here are some advices for our users that want to report an issue:
+We use GitHub Issues as the official bug tracker for the liquality Dashboard Chakra. Here are some advices for our users that want to report an issue:
 
-1. Make sure that you are using the latest version of the Argon Dashboard Chakra. Check the CHANGELOG from your dashboard on our [CHANGE LOG File](https://github.com/creativetimofficial/argon-dashboard-chakra/blob/main/CHANGELOG.md?ref=readme-argonchakra).
+1. Make sure that you are using the latest version of the liquality Dashboard Chakra. Check the CHANGELOG from your dashboard on our [CHANGE LOG File](https://github.com/creativetimofficial/liquality-dashboard-chakra/blob/main/CHANGELOG.md?ref=readme-liqualitychakra).
 2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
 3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
 
 ## Technical Support or Questions
 
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us?ref=readme-argonchakra) instead of opening an issue.
+If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us?ref=readme-liqualitychakra) instead of opening an issue.
 
 ## Licensing
 
-- Copyright 2022 [Creative Tim](https://www.creative-tim.com?ref=readme-argonchakra)
+- Copyright 2022 [Creative Tim](https://www.creative-tim.com?ref=readme-liqualitychakra)
 
-- Creative Tim [License](https://www.creative-tim.com/license?ref=readme-argonchakra)
+- Creative Tim [License](https://www.creative-tim.com/license?ref=readme-liqualitychakra)
 
 ## Useful Links
 
-- [More products](https://www.creative-tim.com/templates?ref=readme-argonchakra) from Creative Tim
+- [More products](https://www.creative-tim.com/templates?ref=readme-liqualitychakra) from Creative Tim
 
 - [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
 
-- [Freebies](https://www.creative-tim.com/bootstrap-themes/free?ref=readme-argonchakra) from Creative Tim
+- [Freebies](https://www.creative-tim.com/bootstrap-themes/free?ref=readme-liqualitychakra) from Creative Tim
 
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=readme-argonchakra) (earn money)
+- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=readme-liqualitychakra) (earn money)
 
-- [More products](https://simmmple.com/?ref=readme-argonchakra) from Simmmple
+- [More products](https://simmmple.com/?ref=readme-liqualitychakra) from Simmmple
 
 ### Social Media - Creative Tim
 

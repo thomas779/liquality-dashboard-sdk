@@ -15,7 +15,7 @@ import avatar1 from "assets/img/avatars/avatar1.png";
 import avatar2 from "assets/img/avatars/avatar2.png";
 import avatar3 from "assets/img/avatars/avatar3.png";
 // Custom Icons
-import { ArgonLogoDark, ArgonLogoLight, ChakraLogoDark, ChakraLogoLight, ProfileIcon, SettingsIcon } from "components/Icons/Icons";
+import { liqualityLogoDark, liqualityLogoLight, ChakraLogoDark, ChakraLogoLight, ProfileIcon, SettingsIcon } from "components/Icons/Icons";
 // Custom Components
 import { ItemContent } from "components/Menu/ItemContent";
 import { SearchBar } from "components/Navbars/SearchBar/SearchBar";
@@ -107,9 +107,9 @@ const handleConnectMetamask = async () => {
         logo={
           <Stack direction='row' spacing='12px' align='center' justify='center'>
             {colorMode === "dark" ? (
-              <ArgonLogoLight w='74px' h='27px' />
+              <liqualityLogoLight w='74px' h='27px' />
             ) : (
-              <ArgonLogoDark w='74px' h='27px' />
+              <liqualityLogoDark w='74px' h='27px' />
             )}
             <Box
               w='1px'

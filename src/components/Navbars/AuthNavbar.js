@@ -7,8 +7,8 @@
 //   Link, Stack, Text, useColorMode, useColorModeValue
 // } from "@chakra-ui/react";
 // import {
-//   ArgonLogoDark,
-//   ArgonLogoLight,
+//   liqualityLogoDark,
+//   liqualityLogoLight,
 //   ChakraLogoBlue, ChakraLogoDark,
 //   ChakraLogoLight, DocumentIcon,
 //   HomeIcon,
@@ -72,7 +72,7 @@
 //       color={mainText}
 //     >
 //       <Stack direction="row" spacing="12px" align="center" justify="center">
-//         <ArgonLogoLight w="74px" h="27px" />
+//         <liqualityLogoLight w="74px" h="27px" />
 //         <Box w="1px" h="20px" bg={"white"} />
 //         <ChakraLogoBlue w="82px" h="21px" />
 //       </Stack>
@@ -185,9 +185,9 @@
 //                 justify="center"
 //               >
 //                 {colorMode === "dark" ? (
-//                   <ArgonLogoLight w="74px" h="27px" />
+//                   <liqualityLogoLight w="74px" h="27px" />
 //                 ) : (
-//                   <ArgonLogoDark w="74px" h="27px" />
+//                   <liqualityLogoDark w="74px" h="27px" />
 //                 )}
 //                 <Box
 //                   w="1px"
@@ -205,7 +205,7 @@
 //           />
 //         </Box>
 //         {linksAuth}
-//         <Link href="https://creative-tim.com/product/argon-dashboard-chakra">
+//         <Link href="https://creative-tim.com/product/liquality-dashboard-chakra">
 //           <Button
 //             bg={bgButton}
 //             color={colorButton}

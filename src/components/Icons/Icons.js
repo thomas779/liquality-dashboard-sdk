@@ -506,8 +506,8 @@ export const VisaIcon = createIcon({
   ),
 });
 
-export const ArgonLogoDark = createIcon({
-  displayName: "ArgonLogoDark",
+export const liqualityLogoDark = createIcon({
+  displayName: "liqualityLogoDark",
   viewBox: "0 0 74 27",
   path: (
     <svg width='74' height='27' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -525,8 +525,8 @@ export const ArgonLogoDark = createIcon({
   ),
 });
 
-export const ArgonLogoLight = createIcon({
-  displayName: "ArgonLogoLight",
+export const liqualityLogoLight = createIcon({
+  displayName: "liqualityLogoLight",
   viewBox: "0 0 74 27",
   path: (
     <svg width='74' height='27' fill='none' xmlns='http://www.w3.org/2000/svg'>

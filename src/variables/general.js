@@ -32,7 +32,7 @@ import { SiDropbox } from "react-icons/si";
 export const dashboardTableData = [
   {
     logo: AdobexdLogo,
-    name: "Argon Dashboard Chakra Version",
+    name: "liquality Dashboard Chakra Version",
     members: [avatar1, avatar2, avatar3, avatar4, avatar5],
     budget: "$14,000",
     progression: 60,
@@ -114,7 +114,7 @@ export const timelineData = [
 export const rtlDashboardTableData = [
   {
     logo: AdobexdLogo,
-    name: "نسخة Argon Dashboard Chakra",
+    name: "نسخة liquality Dashboard Chakra",
     members: [avatar1, avatar2, avatar3, avatar4, avatar5],
     budget: "$14,000",
     progression: 60,
@@ -392,31 +392,31 @@ export const olderTransactions = [
 
 export const pageVisits = [
   {
-    pageName: "/argon/",
+    pageName: "/liquality/",
     visitors: "4,569",
     uniqueUsers: 340,
     bounceRate: "46,53%"
   },
   {
-    pageName: "/argon/index.html",
+    pageName: "/liquality/index.html",
     visitors: "3,985",
     uniqueUsers: 319,
     bounceRate: "46,53%"
   },
   {
-    pageName: "/argon/charts.html",
+    pageName: "/liquality/charts.html",
     visitors: "3,513",
     uniqueUsers: 294,
     bounceRate: "36,49%"
   },
   {
-    pageName: "/argon/tables.html",
+    pageName: "/liquality/tables.html",
     visitors: "2,050",
     uniqueUsers: 147,
     bounceRate: "50,87%"
   },
   {
-    pageName: "/argon/profile.html",
+    pageName: "/liquality/profile.html",
     visitors: "1,795",
     uniqueUsers: 190,
     bounceRate: "46,53%"

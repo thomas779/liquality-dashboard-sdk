@@ -9,8 +9,8 @@ import {
 import Configurator from "components/Configurator/Configurator";
 import Footer from "components/Footer/Footer.js";
 import {
-  ArgonLogoDark,
-  ArgonLogoLight,
+  liqualityLogoDark,
+  liqualityLogoLight,
   ChakraLogoDark,
   ChakraLogoLight,
 } from "components/Icons/Icons";
@@ -121,9 +121,9 @@ export default function Dashboard(props) {
         logo={
           <Stack direction='row' spacing='12px' align='center' justify='center'>
             {colorMode === "dark" ? (
-              <ArgonLogoLight w='74px' h='27px' />
+              <liqualityLogoLight w='74px' h='27px' />
             ) : (
-              <ArgonLogoDark w='74px' h='27px' />
+              <liqualityLogoDark w='74px' h='27px' />
             )}
             <Box
               w='1px'
@@ -172,15 +172,7 @@ export default function Dashboard(props) {
             onOpen={onOpen}
           />
         </Portal>
-        <Configurator
-          secondary={getActiveNavbar(routes)}
-          isOpen={isOpen}
-          onClose={onClose}
-          isChecked={fixed}
-          onSwitch={(value) => {
-            setFixed(value);
-          }}
-        />
+
       </MainPanel>
     </Box>
   );
