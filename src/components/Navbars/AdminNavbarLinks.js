@@ -78,7 +78,7 @@ const handleConnectMetamask = async () => {
       w={{ sm: "100%", md: "auto" }}
       alignItems='center'
       flexDirection='row'>
-      <SearchBar me='18px' />
+      {/* <SearchBar me='18px' /> */}
       <Button
         onClick={handleConnectMetamask}
         ms='0px'
@@ -90,12 +90,12 @@ const handleConnectMetamask = async () => {
           document.documentElement.dir ? (
             ""
           ) : (
-            <ProfileIcon color={navbarIcon} w='22px' h='22px' me='0px' />
+            <SettingsIcon color={navbarIcon} w='22px' h='22px' me='0px' />
           )
         }
         leftIcon={
           document.documentElement.dir ? (
-            <ProfileIcon color={navbarIcon} w='22px' h='22px' me='0px' />
+            <SettingsIcon color={navbarIcon} w='22px' h='22px' me='0px' />
           ) : (
             ""
           )
@@ -128,7 +128,7 @@ const handleConnectMetamask = async () => {
         routes={routes}
         {...rest}
       />
-      <SettingsIcon
+      {/* <SettingsIcon
         cursor='pointer'
         ms={{ base: "16px", xl: "0px" }}
         me='16px'
@@ -172,7 +172,7 @@ const handleConnectMetamask = async () => {
             </MenuItem>
           </Flex>
         </MenuList>
-      </Menu>
+      </Menu> */}
     </Flex>
   );
 }

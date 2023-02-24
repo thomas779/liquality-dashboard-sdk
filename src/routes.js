@@ -20,16 +20,16 @@ import {
 
 var dashRoutes = [
   {
-    path: "/dashboard",
-    name: "Dashboard",
+    path: "/home",
+    name: "Home",
     rtlName: "لوحة القيادة",
     icon: <HomeIcon color='inherit' />,
     component: Dashboard,
     layout: "/admin",
   },
   {
-    path: "/tables",
-    name: "Tables",
+    path: "/dashboard",
+    name: "Dashboard",
     rtlName: "لوحة القيادة",
     icon: <StatsIcon color='inherit' />,
     component: Tables,
@@ -52,14 +52,14 @@ var dashRoutes = [
   //   layout: "/rtl",
   // },
   {
-    name: "ACCOUNT PAGES",
+    name: "ACCOUNT ACTIONS",
     category: "account",
     rtlName: "صفحات",
     state: "pageCollapse",
     views: [
       {
-        path: "/profile",
-        name: "Profile",
+        path: "/swap",
+        name: "Swap",
         rtlName: "لوحة القيادة",
         icon: <PersonIcon color='inherit' />,
         secondaryNavbar: true,

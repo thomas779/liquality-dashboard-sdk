@@ -28,7 +28,7 @@ export function SidebarHelp(props) {
       spacing='20px'
       mb="22px"
       mt="auto"
-      mx='20px'>
+      mx='10px'>
             <Flex flexDirection="column">
               <Flex
                 justifyContent="space-between"
