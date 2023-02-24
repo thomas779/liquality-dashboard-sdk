@@ -23,6 +23,10 @@ import { SidebarResponsive } from "components/Sidebar/Sidebar";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import routes from "routes.js";
+import { Web3Provider } from "@ethersproject/providers";
+import Web3 from "web3";
+
+
 
 export default function HeaderLinks(props) {
   const {
@@ -36,6 +40,28 @@ export default function HeaderLinks(props) {
   } = props;
 
   const { colorMode } = useColorMode();
+
+const [userAccountAddress, setUserAccountAddress] = React.useState("");
+const [connectedAddrValue, setConnectedAddrValue] = React.useState("");
+
+
+const handleConnectMetamask = async () => {
+  const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
+  const network = await web3.eth.net.getNetworkType();
+  await window.ethereum.enable();
+  //Fetch account data:
+  const accountFromMetaMask = await web3.eth.getAccounts();
+  console.log(accountFromMetaMask, "account in app.js before set state");
+  setUserAccountAddress(accountFromMetaMask);
+  setConnectedAddrValue(
+    String(accountFromMetaMask).substr(0, 5) +
+      "..." +
+      String(accountFromMetaMask).substr(38, 4)
+  );
+
+  console.log(userAccountAddress, "user metamask address after set state");
+};
+
 
   // Chakra Color Mode
   let navbarIcon =
@@ -53,30 +79,29 @@ export default function HeaderLinks(props) {
       alignItems='center'
       flexDirection='row'>
       <SearchBar me='18px' />
-      <NavLink to='/auth/signin'>
-        <Button
-          ms='0px'
-          px='0px'
-          me={{ sm: "2px", md: "16px" }}
-          color={navbarIcon}
-          variant='no-effects'
-          rightIcon={
-            document.documentElement.dir ? (
-              ""
-            ) : (
-              <ProfileIcon color={navbarIcon} w='22px' h='22px' me='0px' />
-            )
-          }
-          leftIcon={
-            document.documentElement.dir ? (
-              <ProfileIcon color={navbarIcon} w='22px' h='22px' me='0px' />
-            ) : (
-              ""
-            )
-          }>
-          <Text display={{ sm: "none", md: "flex" }}>Sign In</Text>
-        </Button>
-      </NavLink>
+      <Button
+        onClick={handleConnectMetamask}
+        ms='0px'
+        px='0px'
+        me={{ sm: "2px", md: "16px" }}
+        color={navbarIcon}
+        variant='no-effects'
+        rightIcon={
+          document.documentElement.dir ? (
+            ""
+          ) : (
+            <ProfileIcon color={navbarIcon} w='22px' h='22px' me='0px' />
+          )
+        }
+        leftIcon={
+          document.documentElement.dir ? (
+            <ProfileIcon color={navbarIcon} w='22px' h='22px' me='0px' />
+          ) : (
+            ""
+          )
+        }>
+        <Text display={{ sm: "none", md: "flex" }}>Connect Wallet</Text>
+      </Button>
       <SidebarResponsive
         hamburgerColor={"white"}
         logo={

@@ -14,8 +14,11 @@
 		"@fontsource/open-sans": "^4.5.0",
 		"@fontsource/raleway": "^4.5.0",
 		"@fontsource/roboto": "^4.5.0",
+		"@liquality/wallet-sdk": "1.0.0",
+		"@metamask/sdk": "0.1.0",
 		"apexcharts": "^3.27.3",
 		"classnames": "2.3.1",
+		"ethers": "6.0.8",
 		"framer-motion": "4.1.17",
 		"match-sorter": "6.3.0",
 		"moment": "2.29.1",
@@ -37,7 +40,8 @@
 		"react-tagsinput": "3.19.0",
 		"sass": "^1.56.1",
 		"stylis": "^4.0.10",
-		"stylis-plugin-rtl": "2.1.1"
+		"stylis-plugin-rtl": "2.1.1",
+		"web3": "1.8.2"
 	},
 	"resolutions": {
 		"react-error-overlay": "6.0.9"
