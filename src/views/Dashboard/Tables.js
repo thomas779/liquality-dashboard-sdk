@@ -67,14 +67,15 @@ function Tables() {
     // const updatedAccountBalance = [...accountBalance];
 
     for (const token of listAccountTokens) {
-      if (token.formattedBalance === "0.00") {
-        continue; // skip tokens with zero balance
-      }
+      // if (token.formattedBalance === "0.00") {
+      //   continue; // skip tokens with zero balance
+      // }
 
       try {
         const priceData = await fetchCoingeckoPrice(token.tokenContractAddress);
         token.price = priceData.price;
         token.logo = priceData.logo;
+        token.balance = (token.price * token.formattedBalance).toFixed(2);
       } catch (error) {
         console.error(
           `Error fetching price data for token ${token.tokenName}: ${error.message}`
@@ -182,6 +183,7 @@ function Tables() {
                       email={row.tokenSymbol}
                       domain={row.formattedBalance}
                       status={row.price}
+                      date={'$' + row.balance}
                     />
                   );
                 })}

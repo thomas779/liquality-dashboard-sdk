@@ -67,7 +67,7 @@ function TablesTableRow(props) {
       </Td>
       <Td borderColor={borderColor} borderBottom={isLast ? "none" : null}>
         <Text fontSize="md" color={textColor} fontWeight="bold" pb=".5rem">
-          {date}
+          {date.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
         </Text>
       </Td>
       <Td borderColor={borderColor} borderBottom={isLast ? "none" : null}>
