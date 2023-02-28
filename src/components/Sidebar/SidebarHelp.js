@@ -1,12 +1,13 @@
 import {
   Box,
   Button,
-Stack,
-  Flex, Link,
+  Stack,
+  Flex,
+  Link,
   Switch,
   Text,
   useColorMode,
-  useColorModeValue
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -23,26 +24,23 @@ export function SidebarHelp(props) {
   const settingsRef = React.useRef();
   return (
     <Stack
-      justify='end'
-      direction='column'
-      spacing='20px'
+      justify="end"
+      direction="column"
+      spacing="20px"
       mb="22px"
       mt="auto"
-      mx='10px'>
-            <Flex flexDirection="column">
-              <Flex
-                justifyContent="space-between"
-                alignItems="center"
-                mb="24px"
-              >
-                <Button
-                  onClick={toggleColorMode}
-                  color={colorMode === "light" ? "Dark" : "Dark"}
-                >
-                  Toggle {colorMode === "light" ? "Dark" : "Light"}
-                </Button>
-              </Flex>
-            </Flex>
+      mx="10px"
+    >
+      <Flex flexDirection="column">
+        <Flex justifyContent="space-between" alignItems="center" mb="24px">
+          <Button
+            onClick={toggleColorMode}
+            color={colorMode === "light" ? "Dark" : "Dark"}
+          >
+            Toggle {colorMode === "light" ? "Dark" : "Light"}
+          </Button>
+        </Flex>
+      </Flex>
     </Stack>
   );
 }

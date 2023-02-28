@@ -55,7 +55,7 @@
 //           <DrawerHeader pt="24px" px="24px">
 //             <DrawerCloseButton />
 //             <Text fontSize="xl" fontWeight="bold" mt="16px">
-//               liquality Chakra Configurator
+//               Liquality Chakra Configurator
 //             </Text>
 //             <Text fontSize="md" mb="16px">
 //               See your dashboard options.

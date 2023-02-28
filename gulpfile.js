@@ -9,12 +9,12 @@ gulp.task("licenses", async function () {
       gap.prependText(`/*!
 
       =========================================================
-      * liquality Dashboard Chakra - v1.0.0
+      * Liquality Dashboard Chakra - v1.0.0
       =========================================================
       
-      * Product Page: https://www.creative-tim.com/product/liquality-dashboard-chakra
+      * Product Page: https://www.creative-tim.com/product/Liquality-dashboard-chakra
       * Copyright 2022 Creative Tim (https://www.creative-tim.com)
-      * Licensed under MIT (https://github.com/creativetimofficial/liquality-dashboard-chakra/blob/master/LICENSE.md)
+      * Licensed under MIT (https://github.com/creativetimofficial/Liquality-dashboard-chakra/blob/master/LICENSE.md)
       
       * Design and Coded by Simmmple & Creative Tim
       
@@ -34,12 +34,12 @@ gulp.task("licenses", async function () {
       /*!
       
       =========================================================
-      * liquality Dashboard Chakra - v1.0.0
+      * Liquality Dashboard Chakra - v1.0.0
       =========================================================
       
-      * Product Page: https://www.creative-tim.com/product/liquality-dashboard-chakra
+      * Product Page: https://www.creative-tim.com/product/Liquality-dashboard-chakra
       * Copyright 2022 Creative Tim (https://www.creative-tim.com)
-      * Licensed under MIT (https://github.com/creativetimofficial/liquality-dashboard-chakra/blob/master/LICENSE.md)
+      * Licensed under MIT (https://github.com/creativetimofficial/Liquality-dashboard-chakra/blob/master/LICENSE.md)
       
       * Design and Coded by Simmmple & Creative Tim
       
@@ -59,12 +59,12 @@ gulp.task("licenses", async function () {
       gap.prependText(`/*!
 
       =========================================================
-      * liquality Dashboard Chakra - v1.0.0
+      * Liquality Dashboard Chakra - v1.0.0
       =========================================================
       
-      * Product Page: https://www.creative-tim.com/product/liquality-dashboard-chakra
+      * Product Page: https://www.creative-tim.com/product/Liquality-dashboard-chakra
       * Copyright 2022 Creative Tim (https://www.creative-tim.com)
-      * Licensed under MIT (https://github.com/creativetimofficial/liquality-dashboard-chakra/blob/master/LICENSE.md)
+      * Licensed under MIT (https://github.com/creativetimofficial/Liquality-dashboard-chakra/blob/master/LICENSE.md)
       
       * Design and Coded by Simmmple & Creative Tim
       

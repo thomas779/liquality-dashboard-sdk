@@ -506,8 +506,8 @@ export const VisaIcon = createIcon({
   ),
 });
 
-export const liqualityLogoDark = createIcon({
-  displayName: "liqualityLogoDark",
+export const LiqualityLogoDark = createIcon({
+  displayName: "LiqualityLogoDark",
   viewBox: "0 0 74 27",
   path: (
     <svg width='74' height='27' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -525,8 +525,8 @@ export const liqualityLogoDark = createIcon({
   ),
 });
 
-export const liqualityLogoLight = createIcon({
-  displayName: "liqualityLogoLight",
+export const LiqualityLogoLight = createIcon({
+  displayName: "LiqualityLogoLight",
   viewBox: "0 0 74 27",
   path: (
     <svg width='74' height='27' fill='none' xmlns='http://www.w3.org/2000/svg'>

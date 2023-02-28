@@ -79,7 +79,7 @@
 //                   w='100%'>
 //                   <Flex justify='space-between' align='center'>
 //                     <Text fontSize='md' fontWeight='bold'>
-//                       liquality x Chakra
+//                       Liquality x Chakra
 //                     </Text>
 //                     <Icon
 //                       as={RiMastercardFill}

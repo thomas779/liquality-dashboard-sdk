@@ -28,7 +28,7 @@ export default function Footer(props) {
         </Text>
         <Link
           color='blue.400'
-          href='https://www.liquality.io/'
+          href='https://www.Liquality.io/'
           target='_blank'>
             Liquality.io {" "}
         </Link>

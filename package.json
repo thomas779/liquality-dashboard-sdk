@@ -13,7 +13,7 @@
 		"@fontsource/open-sans": "^4.5.0",
 		"@fontsource/raleway": "^4.5.0",
 		"@fontsource/roboto": "^4.5.0",
-		"@liquality/wallet-sdk": "1.0.0",
+		"@liquality/wallet-sdk": "2.1.0",
 		"@metamask/sdk": "0.1.0",
 		"apexcharts": "^3.27.3",
 		"classnames": "2.3.1",
@@ -46,9 +46,9 @@
 		"react-error-overlay": "6.0.9"
 	},
 	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build && gulp licenses",
-		"test": "react-scripts test --env=jsdom",
+		"start": "react-app-rewired start",
+		"build": "react-app-rewired build",
+		"test": "react-app-rewired test",
 		"eject": "react-scripts eject",
 		"deploy": "npm run build",
 		"lint:check": "eslint . --ext=js,jsx;  exit 0",
@@ -61,11 +61,21 @@
 	},
 	"devDependencies": {
 		"@babel/plugin-transform-react-jsx-source": "^7.14.5",
+		"assert": "2.0.0",
+		"buffer": "6.0.3",
+		"crypto-browserify": "3.12.0",
 		"eslint-config-prettier": "8.3.0",
 		"eslint-plugin-prettier": "3.4.0",
 		"gulp": "4.0.2",
 		"gulp-append-prepend": "1.0.9",
-		"prettier": "2.2.1"
+		"https-browserify": "1.0.0",
+		"os-browserify": "0.3.0",
+		"prettier": "2.2.1",
+		"process": "0.11.10",
+		"react-app-rewired": "2.2.1",
+		"stream-browserify": "3.0.0",
+		"stream-http": "3.2.0",
+		"url": "0.11.0"
 	},
 	"browserslist": {
 		"production": [

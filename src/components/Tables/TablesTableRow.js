@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
+
 function TablesTableRow(props) {
   const { logo, name, email, subdomain, domain, status, date, isLast } = props;
   const textColor = useColorModeValue("gray.500", "white");
@@ -76,8 +77,9 @@ function TablesTableRow(props) {
             color="gray.400"
             fontWeight="bold"
             cursor="pointer"
+            // onClick={updateData}
           >
-            Edit
+            Update
           </Text>
         </Button>
       </Td>

@@ -9,8 +9,8 @@ import {
 import Configurator from "components/Configurator/Configurator";
 import Footer from "components/Footer/Footer.js";
 import {
-  liqualityLogoDark,
-  liqualityLogoLight,
+  LiqualityLogoDark,
+  LiqualityLogoLight,
   ChakraLogoDark,
   ChakraLogoLight,
 } from "components/Icons/Icons";
@@ -121,9 +121,9 @@ export default function Dashboard(props) {
         logo={
           <Stack direction='row' spacing='12px' align='center' justify='center'>
             {colorMode === "dark" ? (
-              <liqualityLogoLight w='74px' h='27px' />
+              <LiqualityLogoLight w='74px' h='27px' />
             ) : (
-              <liqualityLogoDark w='74px' h='27px' />
+              <LiqualityLogoDark w='74px' h='27px' />
             )}
             <Box
               w='1px'

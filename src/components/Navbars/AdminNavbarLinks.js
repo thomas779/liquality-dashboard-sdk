@@ -2,31 +2,40 @@
 import { BellIcon } from "@chakra-ui/icons";
 // Chakra Imports
 import {
-  Box, Button,
+  Box,
+  Button,
   Flex,
   Menu,
   MenuButton,
   MenuItem,
-  MenuList, Stack, Text, useColorMode,
-  useColorModeValue
+  MenuList,
+  Stack,
+  Text,
+  useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
 // Assets
 import avatar1 from "assets/img/avatars/avatar1.png";
 import avatar2 from "assets/img/avatars/avatar2.png";
 import avatar3 from "assets/img/avatars/avatar3.png";
 // Custom Icons
-import { liqualityLogoDark, liqualityLogoLight, ChakraLogoDark, ChakraLogoLight, ProfileIcon, SettingsIcon } from "components/Icons/Icons";
+import {
+  LiqualityLogoDark,
+  LiqualityLogoLight,
+  ChakraLogoDark,
+  ChakraLogoLight,
+  ProfileIcon,
+  SettingsIcon,
+} from "components/Icons/Icons";
 // Custom Components
 import { ItemContent } from "components/Menu/ItemContent";
 import { SearchBar } from "components/Navbars/SearchBar/SearchBar";
 import { SidebarResponsive } from "components/Sidebar/Sidebar";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import routes from "routes.js";
 import { Web3Provider } from "@ethersproject/providers";
 import Web3 from "web3";
-
-
 
 export default function HeaderLinks(props) {
   const {
@@ -41,27 +50,44 @@ export default function HeaderLinks(props) {
 
   const { colorMode } = useColorMode();
 
-const [userAccountAddress, setUserAccountAddress] = React.useState("");
-const [connectedAddrValue, setConnectedAddrValue] = React.useState("");
+  const [userAccountAddress, setUserAccountAddress] = useState("");
+  const [connectedAddrValue, setConnectedAddrValue] = useState("");
+
+  const handleConnectMetamask = async () => {
+    const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
+    const network = await web3.eth.net.getNetworkType();
+    await window.ethereum.enable();
+    //Fetch account data:
+    const accountFromMetaMask = await web3.eth.getAccounts();
+    console.log(accountFromMetaMask, "account in app.js before set state");
+    setUserAccountAddress(accountFromMetaMask);
+    setConnectedAddrValue(
+      String(accountFromMetaMask).substr(0, 5) +
+        "..." +
+        String(accountFromMetaMask).substr(38, 4)
+    );
+  };
 
 
-const handleConnectMetamask = async () => {
-  const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
-  const network = await web3.eth.net.getNetworkType();
-  await window.ethereum.enable();
-  //Fetch account data:
-  const accountFromMetaMask = await web3.eth.getAccounts();
-  console.log(accountFromMetaMask, "account in app.js before set state");
-  setUserAccountAddress(accountFromMetaMask);
-  setConnectedAddrValue(
-    String(accountFromMetaMask).substr(0, 5) +
-      "..." +
-      String(accountFromMetaMask).substr(38, 4)
-  );
+  useEffect(() => {
+    if (userAccountAddress) {
+      // get the chain ID of the connected MetaMask wallet
+      async function fetchData() {
+        const hexChainId = await window.ethereum.request({
+          method: "eth_chainId",
+        });
+        const chainId = parseInt(hexChainId, 16);
+        
+        let loginResponse = {
+          address: userAccountAddress[0],
+          chainId: chainId,
+        };
 
-  console.log(userAccountAddress, "user metamask address after set state");
-};
-
+        localStorage.setItem("loginResponse", JSON.stringify(loginResponse));
+      }
+      fetchData();
+    }
+  }, [userAccountAddress]);
 
   // Chakra Color Mode
   let navbarIcon =
@@ -76,50 +102,54 @@ const handleConnectMetamask = async () => {
     <Flex
       pe={{ sm: "0px", md: "16px" }}
       w={{ sm: "100%", md: "auto" }}
-      alignItems='center'
-      flexDirection='row'>
+      alignItems="center"
+      flexDirection="row"
+    >
       {/* <SearchBar me='18px' /> */}
       <Button
         onClick={handleConnectMetamask}
-        ms='0px'
-        px='0px'
+        ms="0px"
+        px="0px"
         me={{ sm: "2px", md: "16px" }}
         color={navbarIcon}
-        variant='no-effects'
+        variant="no-effects"
         rightIcon={
           document.documentElement.dir ? (
             ""
           ) : (
-            <SettingsIcon color={navbarIcon} w='22px' h='22px' me='0px' />
+            <SettingsIcon color={navbarIcon} w="22px" h="22px" me="0px" />
           )
         }
         leftIcon={
           document.documentElement.dir ? (
-            <SettingsIcon color={navbarIcon} w='22px' h='22px' me='0px' />
+            <SettingsIcon color={navbarIcon} w="22px" h="22px" me="0px" />
           ) : (
             ""
           )
-        }>
-        <Text display={{ sm: "none", md: "flex" }}>Connect Wallet</Text>
+        }
+      >
+        <Text display={{ sm: "none", md: "flex" }}>
+          {connectedAddrValue ? connectedAddrValue : "Connect Wallet"}
+        </Text>
       </Button>
       <SidebarResponsive
         hamburgerColor={"white"}
         logo={
-          <Stack direction='row' spacing='12px' align='center' justify='center'>
+          <Stack direction="row" spacing="12px" align="center" justify="center">
             {colorMode === "dark" ? (
-              <liqualityLogoLight w='74px' h='27px' />
+              <LiqualityLogoLight w="74px" h="27px" />
             ) : (
-              <liqualityLogoDark w='74px' h='27px' />
+              <LiqualityLogoDark w="74px" h="27px" />
             )}
             <Box
-              w='1px'
-              h='20px'
+              w="1px"
+              h="20px"
               bg={colorMode === "dark" ? "white" : "gray.700"}
             />
             {colorMode === "dark" ? (
-              <ChakraLogoLight w='82px' h='21px' />
+              <ChakraLogoLight w="82px" h="21px" />
             ) : (
-              <ChakraLogoDark w='82px' h='21px' />
+              <ChakraLogoDark w="82px" h="21px" />
             )}
           </Stack>
         }

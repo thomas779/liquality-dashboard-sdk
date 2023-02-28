@@ -21,8 +21,8 @@
 // import PanelContainer from "../components/Layout/PanelContainer";
 // import PanelContent from "../components/Layout/PanelContent";
 // import {
-//   liqualityLogoDark,
-//   liqualityLogoLight,
+//   LiqualityLogoDark,
+//   LiqualityLogoLight,
 //   ChakraLogoDark,
 //   ChakraLogoLight,
 // } from "components/Icons/Icons";
@@ -122,9 +122,9 @@
 //         logo={
 //           <Stack direction='row' spacing='12px' align='center' justify='center'>
 //             {colorMode === "dark" ? (
-//               <liqualityLogoLight w='74px' h='27px' />
+//               <LiqualityLogoLight w='74px' h='27px' />
 //             ) : (
-//               <liqualityLogoDark w='74px' h='27px' />
+//               <LiqualityLogoDark w='74px' h='27px' />
 //             )}
 //             <Box
 //               w='1px'
@@ -152,7 +152,7 @@
 //         <Portal>
 //           <AdminNavbar
 //             onOpen={onOpen}
-//             logoText={"liquality DASHBOARD CHAKRA"}
+//             logoText={"Liquality DASHBOARD CHAKRA"}
 //             brandText={getActiveRoute(routes)}
 //             secondary={getActiveNavbar(routes)}
 //             fixed={fixed}
