@@ -69,7 +69,7 @@ export default function Dashboard() {
                   color='gray.400'
                   fontWeight='bold'
                   textTransform='uppercase'>
-                  Today's Money
+                  Total Balance
                 </StatLabel>
                 <Flex>
                   <StatNumber fontSize='lg' color={textColor} fontWeight='bold'>
@@ -108,7 +108,7 @@ export default function Dashboard() {
                   color='gray.400'
                   fontWeight='bold'
                   textTransform='uppercase'>
-                  Today's Users
+                  Biggest Bag
                 </StatLabel>
                 <Flex>
                   <StatNumber fontSize='lg' color={textColor} fontWeight='bold'>
@@ -147,7 +147,7 @@ export default function Dashboard() {
                   color='gray.400'
                   fontWeight='bold'
                   textTransform='uppercase'>
-                  New Clients
+                  Number Of Tokens
                 </StatLabel>
                 <Flex>
                   <StatNumber fontSize='lg' color={textColor} fontWeight='bold'>
@@ -226,7 +226,7 @@ export default function Dashboard() {
           maxW={{ sm: "320px", md: "100%" }}>
           <Flex direction='column' mb='40px' p='28px 0px 0px 22px'>
             <Text color='#fff' fontSize='lg' fontWeight='bold' mb='6px'>
-              Sales Overview
+              Account Balance YTD
             </Text>
             <Text color='#fff' fontSize='sm'>
               <Text as='span' color='green.400' fontWeight='bold'>
@@ -259,7 +259,7 @@ export default function Dashboard() {
           <Flex direction='column'>
             <Flex align='center' justify='space-between' p='22px'>
               <Text fontSize='lg' color={textColor} fontWeight='bold'>
-                Page visits
+                Pie chart of Portfolio Allocation
               </Text>
               <Button variant='primary' maxH='30px'>
                 SEE ALL

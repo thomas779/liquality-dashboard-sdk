@@ -17,31 +17,99 @@ import {
 } from "@chakra-ui/react";
 // Assets
 import BgSignUp from "assets/img/BgSignUp.png";
-import React, { useState } from "react";
-import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+// import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
+import { SwapService } from "@liquality/wallet-sdk";
+import { setupSDK } from "../../setupSDK";
+import Web3 from "web3";
+
+const handleSwap = async () => {
+    const swapRequest = {
+        srcChainId: 1,
+        srcChainTokenIn: "ETH",
+        srcChainTokenInAmount: "1.0",
+        dstChainId: 2,
+        dstChainTokenOut: "DAI",
+        dstChainTokenOutRecipient: "0x1234567890abcdef1234567890abcdef12345678",
+      };
+
+  try {
+    if (localStorage.getItem("loginResponse")) {
+      var connectedAccount = JSON.parse(localStorage.getItem("loginResponse"));
+      const address = connectedAccount.address;
+      const privateKey = web3.eth.getPrivateKey(address);
+    }
+
+    console.log(web3, accounts, address, privateKey, "heyysa");
+
+    const sdk = new SDK();
+    const result = await sdk.swap(swapRequest, privateKey);
+    console.log("Swap result:", result);
+  } catch (error) {
+    console.error("Error swapping:", error);
+  }
+};
+
+// handleSwap();
 
 function SignUp() {
   const bgForm = useColorModeValue("white", "navy.800");
   const titleColor = useColorModeValue("gray.700", "blue.500");
   const textColor = useColorModeValue("gray.700", "white");
-  const colorIcons = useColorModeValue("gray.700", "white");
-  const bgIcons = useColorModeValue("trasnparent", "navy.700");
-  const bgIconsHover = useColorModeValue("gray.50", "whiteAlpha.100");
 
-  const [selectedChainSrc, setSelectedChainSrc] = useState("Select Chain");
-  const [selectedChainDst, setSelectedChainDst] = useState("Select Chain");
+  const [fromChain, setFromChain] = useState('"Select Origin Chain"');
+  const [toChain, setToChain] = useState('"Select Destination Chain"');
+  const [amount, setAmount] = useState("");
+  const [fromToken, setFromToken] = useState("");
+  const [toToken, setToToken] = useState("");
+  const [
+    receiveWithDifferentAddress,
+    setReceiveWithDifferentAddress,
+  ] = useState(false);
+  const [receiveAddress, setReceiveAddress] = useState("");
 
   const handleSwapButtonClick = () => {
     // handle swap button click
+    // Call your swap SDK function here with the selected parameters
+    const swapRequest = {
+        srcChainId: fromChain,
+        srcChainTokenIn: fromToken,
+        srcChainTokenInAmount: amount,
+        dstChainId: toChain,
+        dstChainTokenOut: toToken,
+        dstChainTokenOutRecipient: receiveAddress,
+      };
   };
 
-  const handleChainSelectSrc = (event) => {
-    setSelectedChainSrc(event.target.value);
+  const handleChainSelectSrc = (event) => {;
+    setFromChain(event.target.value);
   };
 
   const handleChainSelectDst = (event) => {
-    setSelectedChainDst(event.target.value);
+    setToChain(event.target.value);
   };
+
+  const handleFromToken = (e) => {
+    setFromToken(e.target.value);
+  };
+
+  const handleToToken = (e) => {
+    setToToken(e.target.value);
+  };
+
+  const handleAmountIn = (e) => {
+    setAmount(e.target.value);
+  };
+
+  const toggleAddressIn = (e) => {
+    setReceiveWithDifferentAddress(e.target.checked);
+  };
+
+  const handleAddressIn = (e) => {
+    setReceiveAddress(e.target.value);
+  };
+
+  setupSDK();
 
   return (
     <Flex
@@ -75,8 +143,8 @@ function SignUp() {
         textAlign="center"
         justifyContent="center"
         align="center"
-        mt="125px"
-        mb="30px"
+        mt="100px"
+        mb="20px"
       >
         <Text fontSize="4xl" color="white" fontWeight="bold">
           LiqSwap
@@ -113,35 +181,41 @@ function SignUp() {
               From
             </FormLabel>
             <Select
-              id="chain-select"
+              id="from-chain-select"
               variant="auth"
               fontSize="sm"
               ms="4px"
-              placeholder="Select Chain"
+              placeholder="Select Origin Chain"
               mb="24px"
               size="lg"
-              value={selectedChainSrc}
+              value={fromChain}
               onChange={handleChainSelectSrc}
             >
-              <option value="Ethereum">Ethereum</option>
-              <option value="Polygon">Polygon</option>
-              <option value="Avalanche">Avalanche</option>
-              <option value="Arbitrum">Arbitrum</option>
+              <option value={1}>Ethereum</option>
+              <option value={137}>Polygon</option>
+              <option value={43114}>Avalanche</option>
+              <option value={42161}>Arbitrum</option>
             </Select>
             <Input
+              id="from-token-input"
+              value={fromToken}
+              onChange={handleFromToken}
               variant="auth"
               fontSize="sm"
               ms="4px"
               type="text"
-              placeholder="Your Address"
+              placeholder="Token Address"
               mb="24px"
               size="lg"
             />
             <Input
+              id="amount-input"
+              value={amount}
+              onChange={handleAmountIn}
               variant="auth"
               fontSize="sm"
               ms="4px"
-              type="text"
+              type="number"
               placeholder="Amount"
               mb="24px"
               size="lg"
@@ -150,54 +224,64 @@ function SignUp() {
               To
             </FormLabel>
             <Select
-              id="chain-select"
+              id="to-chain-select"
               variant="auth"
               fontSize="sm"
               ms="4px"
-              placeholder="Select Chain"
+              placeholder="Select Destination Chain"
               mb="24px"
               size="lg"
-              value={selectedChainDst}
+              value={toChain}
               onChange={handleChainSelectDst}
             >
-              <option value="Ethereum">Ethereum</option>
-              <option value="Polygon">Polygon</option>
-              <option value="Avalanche">Avalanche</option>
-              <option value="Arbitrum">Arbitrum</option>
+              <option value={1}>Ethereum</option>
+              <option value={137}>Polygon</option>
+              <option value={43114}>Avalanche</option>
+              <option value={42161}>Arbitrum</option>
             </Select>
             <Input
+              id="to-token-input"
+              value={toToken}
+              onChange={handleToToken}
               variant="auth"
               fontSize="sm"
               ms="4px"
               type="text"
-              placeholder="Your Address"
-              mb="24px"
-              size="lg"
-            />
-            <Input
-              variant="auth"
-              fontSize="sm"
-              ms="4px"
-              type="text"
-              placeholder="Amount"
+              placeholder="Token Address"
               mb="24px"
               size="lg"
             />
             <FormControl display="flex" alignItems="center" mb="24px">
-              <Switch id="remember-login" colorScheme="blue" me="10px" />
-              <FormLabel htmlFor="remember-login" mb="0" fontWeight="normal">
+              <Switch
+                type="checkbox"
+                id="receive-with-different-address-checkbox"
+                checked={receiveWithDifferentAddress}
+                onChange={toggleAddressIn}
+                colorScheme="blue"
+                me="10px"
+              />
+              <FormLabel
+                htmlFor="receive-with-different-address-checkbox"
+                mb="0"
+                fontWeight="normal"
+              >
                 Swap and Send to Another Address
               </FormLabel>
             </FormControl>
-            <Input
-              variant="auth"
-              fontSize="sm"
-              ms="4px"
-              type="text"
-              placeholder="Recipient's Address"
-              mb="24px"
-              size="lg"
-            />
+            {receiveWithDifferentAddress && (
+              <Input
+                id="receive-address-input"
+                value={receiveAddress}
+                onChange={handleAddressIn}
+                variant="auth"
+                fontSize="sm"
+                ms="4px"
+                type="text"
+                placeholder="Recipient's Address"
+                mb="24px"
+                size="lg"
+              />
+            )}
             <Flex>
               {window.ethereum && window.ethereum.isConnected() ? (
                 <Button
