@@ -19,69 +19,129 @@ import {
 import BgSignUp from "assets/img/BgSignUp.png";
 import React, { useState, useEffect } from "react";
 // import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
-import { SwapService } from "@liquality/wallet-sdk";
+import { SwapService, ERC20Service } from "@liquality/wallet-sdk";
 import { setupSDK } from "../../setupSDK";
 import Web3 from "web3";
+import { ethers } from "ethers";
 
-const handleSwap = async () => {
-    const swapRequest = {
-        srcChainId: 1,
-        srcChainTokenIn: "ETH",
-        srcChainTokenInAmount: "1.0",
-        dstChainId: 2,
-        dstChainTokenOut: "DAI",
-        dstChainTokenOutRecipient: "0x1234567890abcdef1234567890abcdef12345678",
-      };
-
-  try {
-    if (localStorage.getItem("loginResponse")) {
-      var connectedAccount = JSON.parse(localStorage.getItem("loginResponse"));
-      const address = connectedAccount.address;
-      const privateKey = web3.eth.getPrivateKey(address);
-    }
-
-    console.log(web3, accounts, address, privateKey, "heyysa");
-
-    const sdk = new SDK();
-    const result = await sdk.swap(swapRequest, privateKey);
-    console.log("Swap result:", result);
-  } catch (error) {
-    console.error("Error swapping:", error);
-  }
-};
-
-// handleSwap();
+// TODO
+// getBalance()
+// store into array
+// put into rows.options that are iterated over
 
 function SignUp() {
+  setupSDK();
   const bgForm = useColorModeValue("white", "navy.800");
   const titleColor = useColorModeValue("gray.700", "blue.500");
   const textColor = useColorModeValue("gray.700", "white");
 
-  const [fromChain, setFromChain] = useState('"Select Origin Chain"');
-  const [toChain, setToChain] = useState('"Select Destination Chain"');
+  const [fromChain, setFromChain] = useState(1);
+  const [toChain, setToChain] = useState(137);
   const [amount, setAmount] = useState("");
-  const [fromToken, setFromToken] = useState("");
-  const [toToken, setToToken] = useState("");
+  const [fromToken, setFromToken] = useState([]);
+  const [selectedTokenAddress, setSelectedTokenAddress] = useState('');
+  const [toToken, setToToken] = useState(
+    "0x2791bca1f2de4661ed88a30c99a7a9449aa84174"
+  );
   const [
     receiveWithDifferentAddress,
     setReceiveWithDifferentAddress,
   ] = useState(false);
   const [receiveAddress, setReceiveAddress] = useState("");
+  const [quote, setQuote] = useState(null);
 
-  const handleSwapButtonClick = () => {
-    // handle swap button click
-    // Call your swap SDK function here with the selected parameters
-    const swapRequest = {
+  const rpcUrls = {
+    1: "https://rpc.ankr.com/eth",
+    137: "https://rpc-mainnet.maticvigil.com/",
+    43114: "https://api.avax.network/ext/bc/C/rpc",
+    42161: "https://arb1.arbitrum.io/rpc",
+  };
+
+  const getRPC = (chainId) => {
+    return rpcUrls[chainId] || null;
+  };
+
+  const fetchAccountBalance = async () => {
+    const address = JSON.parse(localStorage.getItem("loginResponse")).address;
+    const chainId = JSON.parse(localStorage.getItem("loginResponse")).chainId;
+
+    const listAccountTokens = await ERC20Service.listAccountTokens(
+      address,
+      chainId
+    );
+    console.log(listAccountTokens);
+    return listAccountTokens;
+  };
+
+  useEffect(() => {
+    const fetchTokens = async () => {
+      const listAccountTokens = await fetchAccountBalance();
+      const tokenObjects = listAccountTokens.map(token => ({
+        tokenSymbol: token.tokenSymbol,
+        tokenContractAddress: token.tokenContractAddress,
+      }));
+      setFromToken(tokenObjects);
+    };
+    fetchTokens();
+  }, []);
+
+  useEffect(() => {
+    console.log(amount, toChain, fromChain, "CONDITIONAL RENDER CALLED");
+    console.log(selectedTokenAddress);
+    async function updateQuote() {
+      const quoteRequest = {
         srcChainId: fromChain,
-        srcChainTokenIn: fromToken,
+        srcChainTokenIn: selectedTokenAddress,
         srcChainTokenInAmount: amount,
         dstChainId: toChain,
         dstChainTokenOut: toToken,
-        dstChainTokenOutRecipient: receiveAddress,
       };
+      try {
+        const newQuote = await SwapService.getQuote(quoteRequest);
+        setQuote(newQuote);
+      } catch (error) {
+        console.error("catch error", error);
+        return setQuote(null);
+      }
+    }
+    updateQuote();
+  }, [amount > 0 && amount, toChain, fromChain, selectedTokenAddress]);
+
+  const handleSwapButtonClick = async () => {
+    // handle swap button click
+    // Call your swap SDK function here with the selected parameters
+    const swapRequest = {
+      srcChainId: fromChain,
+      srcChainTokenIn: fromToken,
+      srcChainTokenInAmount: amount,
+      dstChainId: toChain,
+      dstChainTokenOut: toToken,
+      dstChainTokenOutRecipient: receiveAddress,
+    };
+
+    if (localStorage.getItem("loginResponse")) {
+      try {
+        // const connectedAccount = JSON.parse(
+        //   localStorage.getItem("loginResponse")
+        // );
+        // const address = connectedAccount.address;
+
+        const web3 = new Web3(window.ethereum);
+        const accounts = await web3.eth.getAccounts();
+        console.log(web3, accounts, "sdasdadasdsad");
+        // const privateKey = web3.eth.getPrivateKey(address);
+
+        const result = await SwapService.swap(swapRequest, pkOrSigner);
+        console.log("Swap result:", result);
+      } catch (error) {
+        console.error("Error swapping:", error);
+      }
+    } else {
+      console.error("Wallet not Connected:", error);
+    }
   };
 
-  const handleChainSelectSrc = (event) => {;
+  const handleChainSelectSrc = (event) => {
     setFromChain(event.target.value);
   };
 
@@ -90,15 +150,23 @@ function SignUp() {
   };
 
   const handleFromToken = (e) => {
-    setFromToken(e.target.value);
+    const selectedToken = fromToken.find(token => token.tokenSymbol === event.target.value);
+    setSelectedTokenAddress(selectedToken.tokenContractAddress);
   };
 
   const handleToToken = (e) => {
     setToToken(e.target.value);
   };
 
-  const handleAmountIn = (e) => {
-    setAmount(e.target.value);
+  const handleAmountIn = async (e) => {
+    e.persist();
+
+    setTimeout(() => {
+      const inputValue = e.target.value;
+      if (inputValue.length > 0) {
+        setAmount(e.target.value);
+      }
+    }, 1000);
   };
 
   const toggleAddressIn = (e) => {
@@ -108,8 +176,6 @@ function SignUp() {
   const handleAddressIn = (e) => {
     setReceiveAddress(e.target.value);
   };
-
-  setupSDK();
 
   return (
     <Flex
@@ -182,7 +248,6 @@ function SignUp() {
             </FormLabel>
             <Select
               id="from-chain-select"
-              variant="auth"
               fontSize="sm"
               ms="4px"
               placeholder="Select Origin Chain"
@@ -196,23 +261,24 @@ function SignUp() {
               <option value={43114}>Avalanche</option>
               <option value={42161}>Arbitrum</option>
             </Select>
-            <Input
+            <Select
               id="from-token-input"
-              value={fromToken}
-              onChange={handleFromToken}
-              variant="auth"
               fontSize="sm"
               ms="4px"
-              type="text"
-              placeholder="Token Address"
+              placeholder="Select Token"
               mb="24px"
               size="lg"
-            />
+            //   value={selectedToken}
+              onChange={handleFromToken}
+            >
+              {fromToken.map((token) => (
+                <option key={token.tokenSymbol}>{token.tokenSymbol}</option>
+              ))}
+            </Select>
             <Input
               id="amount-input"
-              value={amount}
+              //   value={amount}
               onChange={handleAmountIn}
-              variant="auth"
               fontSize="sm"
               ms="4px"
               type="number"
@@ -225,7 +291,6 @@ function SignUp() {
             </FormLabel>
             <Select
               id="to-chain-select"
-              variant="auth"
               fontSize="sm"
               ms="4px"
               placeholder="Select Destination Chain"
@@ -243,7 +308,6 @@ function SignUp() {
               id="to-token-input"
               value={toToken}
               onChange={handleToToken}
-              variant="auth"
               fontSize="sm"
               ms="4px"
               type="text"
@@ -251,6 +315,20 @@ function SignUp() {
               mb="24px"
               size="lg"
             />
+            {quote && (
+              <Input
+                disabled
+                id="amount-output"
+                value={"" + Number(quote.amount).toFixed(2)}
+                variant="auth"
+                fontSize="sm"
+                ms="4px"
+                type="currency"
+                placeholder="Estimated Amount Received"
+                mb="24px"
+                size="lg"
+              />
+            )}
             <FormControl display="flex" alignItems="center" mb="24px">
               <Switch
                 type="checkbox"

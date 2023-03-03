@@ -34,7 +34,6 @@ import { SidebarResponsive } from "components/Sidebar/Sidebar";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import routes from "routes.js";
-import { Web3Provider } from "@ethersproject/providers";
 import Web3 from "web3";
 
 export default function HeaderLinks(props) {
