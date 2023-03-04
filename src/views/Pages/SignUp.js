@@ -21,13 +21,9 @@ import React, { useState, useEffect } from "react";
 // import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
 import { SwapService, ERC20Service } from "@liquality/wallet-sdk";
 import { setupSDK } from "../../setupSDK";
-import Web3 from "web3";
+import { JsonRpcSigner } from "@ethersproject/providers";
 import { ethers } from "ethers";
-
-// TODO
-// getBalance()
-// store into array
-// put into rows.options that are iterated over
+import erc20ABI from "./erc20ABI.json";
 
 function SignUp() {
   setupSDK();
@@ -39,7 +35,7 @@ function SignUp() {
   const [toChain, setToChain] = useState(137);
   const [amount, setAmount] = useState("");
   const [fromToken, setFromToken] = useState([]);
-  const [selectedTokenAddress, setSelectedTokenAddress] = useState('');
+  const [selectedTokenAddress, setSelectedTokenAddress] = useState("");
   const [toToken, setToToken] = useState(
     "0x2791bca1f2de4661ed88a30c99a7a9449aa84174"
   );
@@ -51,7 +47,7 @@ function SignUp() {
   const [quote, setQuote] = useState(null);
 
   const rpcUrls = {
-    1: "https://rpc.ankr.com/eth",
+    1: "https://mainnet.infura.io/v3/30d6fb21c68f44f8aed1dbeb583a1b0c",
     137: "https://rpc-mainnet.maticvigil.com/",
     43114: "https://api.avax.network/ext/bc/C/rpc",
     42161: "https://arb1.arbitrum.io/rpc",
@@ -69,14 +65,13 @@ function SignUp() {
       address,
       chainId
     );
-    console.log(listAccountTokens);
     return listAccountTokens;
   };
 
   useEffect(() => {
     const fetchTokens = async () => {
       const listAccountTokens = await fetchAccountBalance();
-      const tokenObjects = listAccountTokens.map(token => ({
+      const tokenObjects = listAccountTokens.map((token) => ({
         tokenSymbol: token.tokenSymbol,
         tokenContractAddress: token.tokenContractAddress,
       }));
@@ -87,7 +82,6 @@ function SignUp() {
 
   useEffect(() => {
     console.log(amount, toChain, fromChain, "CONDITIONAL RENDER CALLED");
-    console.log(selectedTokenAddress);
     async function updateQuote() {
       const quoteRequest = {
         srcChainId: fromChain,
@@ -105,14 +99,25 @@ function SignUp() {
       }
     }
     updateQuote();
-  }, [amount > 0 && amount, toChain, fromChain, selectedTokenAddress]);
+  }, [amount > 0 && amount, toChain, fromChain, selectedTokenAddress, toToken]);
+
+  async function fetchTokenDecimals(token, chainId) {
+    const provider = new ethers.providers.JsonRpcProvider(getRPC(chainId));
+    const contract = new ethers.Contract(
+      token,
+      ["function decimals() view returns (uint8)"],
+      provider
+    );
+
+    const decimals = await contract.decimals();
+
+    return Number(decimals);
+  }
 
   const handleSwapButtonClick = async () => {
-    // handle swap button click
-    // Call your swap SDK function here with the selected parameters
     const swapRequest = {
       srcChainId: fromChain,
-      srcChainTokenIn: fromToken,
+      srcChainTokenIn: selectedTokenAddress,
       srcChainTokenInAmount: amount,
       dstChainId: toChain,
       dstChainTokenOut: toToken,
@@ -121,17 +126,34 @@ function SignUp() {
 
     if (localStorage.getItem("loginResponse")) {
       try {
-        // const connectedAccount = JSON.parse(
-        //   localStorage.getItem("loginResponse")
-        // );
-        // const address = connectedAccount.address;
+        const connectedAccount = JSON.parse(
+          localStorage.getItem("loginResponse")
+        ).address;
+        const chainId = JSON.parse(localStorage.getItem("loginResponse"))
+          .chainId;
+        const provider = new ethers.providers.JsonRpcProvider(getRPC(chainId));
+        const signer = provider.getSigner(connectedAccount);
+        console.log(swapRequest, provider, signer, "ACCOUNT AND WEB3 AUTH");
 
-        const web3 = new Web3(window.ethereum);
-        const accounts = await web3.eth.getAccounts();
-        console.log(web3, accounts, "sdasdadasdsad");
-        // const privateKey = web3.eth.getPrivateKey(address);
+        const tokenContract = new ethers.Contract(
+          selectedTokenAddress,
+          erc20ABI,
+          signer
+        );
 
-        const result = await SwapService.swap(swapRequest, pkOrSigner);
+        const amountToApprove = ethers.utils.parseUnits(
+          amount,
+          await fetchTokenDecimals(selectedTokenAddress, chainId)
+        );
+
+        const tx = await tokenContract.approve(
+          "0x663dc15d3c1ac63ff12e45ab68fea3f0a883c251",
+          amountToApprove
+        );
+
+        await tx.wait();
+
+        const result = await SwapService.swap(swapRequest, signer);
         console.log("Swap result:", result);
       } catch (error) {
         console.error("Error swapping:", error);
@@ -150,7 +172,9 @@ function SignUp() {
   };
 
   const handleFromToken = (e) => {
-    const selectedToken = fromToken.find(token => token.tokenSymbol === event.target.value);
+    const selectedToken = fromToken.find(
+      (token) => token.tokenSymbol === e.target.value
+    );
     setSelectedTokenAddress(selectedToken.tokenContractAddress);
   };
 
@@ -268,7 +292,7 @@ function SignUp() {
               placeholder="Select Token"
               mb="24px"
               size="lg"
-            //   value={selectedToken}
+              //   value={selectedToken}
               onChange={handleFromToken}
             >
               {fromToken.map((token) => (
@@ -311,7 +335,7 @@ function SignUp() {
               fontSize="sm"
               ms="4px"
               type="text"
-              placeholder="Token Address"
+              placeholder="Token Contract Address"
               mb="24px"
               size="lg"
             />
