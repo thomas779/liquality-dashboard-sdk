@@ -395,33 +395,33 @@ export const pageVisits = [
     pageName: "/Liquality/",
     visitors: "4,569",
     uniqueUsers: 340,
-    bounceRate: "46,53%"
+    bounceRate: "46,53%",
   },
   {
     pageName: "/Liquality/index.html",
     visitors: "3,985",
     uniqueUsers: 319,
-    bounceRate: "46,53%"
+    bounceRate: "46,53%",
   },
   {
     pageName: "/Liquality/charts.html",
     visitors: "3,513",
     uniqueUsers: 294,
-    bounceRate: "36,49%"
+    bounceRate: "36,49%",
   },
   {
     pageName: "/Liquality/tables.html",
     visitors: "2,050",
     uniqueUsers: 147,
-    bounceRate: "50,87%"
+    bounceRate: "50,87%",
   },
   {
     pageName: "/Liquality/profile.html",
     visitors: "1,795",
     uniqueUsers: 190,
-    bounceRate: "46,53%"
+    bounceRate: "46,53%",
   },
-]
+];
 
 export const socialTraffic = [
   {
@@ -453,5 +453,5 @@ export const socialTraffic = [
     visitors: "2,645",
     percentage: 30,
     color: "orange",
-  }
-]
+  },
+];

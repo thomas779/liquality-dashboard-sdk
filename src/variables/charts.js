@@ -77,6 +77,10 @@ export const lineChartData = [
     name: "Websites",
     data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
   },
+  {
+    name: "Analytics",
+    data: [20, 10, 50, 130, 220, 210, 300, 250, 300],
+  },
 ];
 
 export const lineChartOptions = {
@@ -97,8 +101,6 @@ export const lineChartOptions = {
   xaxis: {
     type: "datetime",
     categories: [
-      "Jan",
-      "Feb",
       "Mar",
       "Apr",
       "May",
@@ -109,6 +111,9 @@ export const lineChartOptions = {
       "Oct",
       "Nov",
       "Dec",
+      "Jan",
+      "Feb",
+      "Mar",
     ],
     axisTicks: {
       show: false

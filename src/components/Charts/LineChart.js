@@ -1,6 +1,7 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
-import { lineChartData, lineChartOptions } from "variables/charts";
+import { lineChartOptions } from "variables/charts";
+// import Dashboard, { lineChartData } from "views/Dashboard/Dashboard";
 
 class LineChart extends React.Component {
   constructor(props) {
@@ -14,9 +15,17 @@ class LineChart extends React.Component {
 
   componentDidMount() {
     this.setState({
-      chartData: lineChartData,
+      chartData: this.props.chartData,
       chartOptions: lineChartOptions,
     });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.chartData !== this.props.chartData) {
+      this.setState({
+        chartData: this.props.chartData,
+      });
+    }
   }
 
   render() {

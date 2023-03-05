@@ -22,8 +22,8 @@ import avatar3 from "assets/img/avatars/avatar3.png";
 import {
   LiqualityLogoDark,
   LiqualityLogoLight,
-  ChakraLogoDark,
-  ChakraLogoLight,
+  // ChakraLogoDark,
+  // ChakraLogoLight,
   ProfileIcon,
   SettingsIcon,
 } from "components/Icons/Icons";
@@ -134,22 +134,22 @@ export default function HeaderLinks(props) {
       <SidebarResponsive
         hamburgerColor={"white"}
         logo={
-          <Stack direction="row" spacing="12px" align="center" justify="center">
+          <Stack align="center" justify="center">
             {colorMode === "dark" ? (
-              <LiqualityLogoLight w="74px" h="27px" />
+              <LiqualityLogoLight w='100px' h='30px' />
             ) : (
-              <LiqualityLogoDark w="74px" h="27px" />
+              <LiqualityLogoDark w='100px' h='30px' />
             )}
-            <Box
+            {/* <Box
               w="1px"
               h="20px"
               bg={colorMode === "dark" ? "white" : "gray.700"}
-            />
-            {colorMode === "dark" ? (
+            /> */}
+            {/* {colorMode === "dark" ? (
               <ChakraLogoLight w="82px" h="21px" />
             ) : (
               <ChakraLogoDark w="82px" h="21px" />
-            )}
+            )} */}
           </Stack>
         }
         colorMode={colorMode}

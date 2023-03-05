@@ -11,8 +11,8 @@ import Footer from "components/Footer/Footer.js";
 import {
   LiqualityLogoDark,
   LiqualityLogoLight,
-  ChakraLogoDark,
-  ChakraLogoLight,
+  // ChakraLogoDark,
+  // ChakraLogoLight,
 } from "components/Icons/Icons";
 // Layout components
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
@@ -119,22 +119,22 @@ export default function Dashboard(props) {
       <Sidebar
         routes={routes}
         logo={
-          <Stack direction='row' spacing='12px' align='center' justify='center'>
+          <Stack align='center' justify='center'>
             {colorMode === "dark" ? (
-              <LiqualityLogoLight w='74px' h='27px' />
+              <LiqualityLogoLight w='100px' h='30px' />
             ) : (
-              <LiqualityLogoDark w='74px' h='27px' />
+              <LiqualityLogoDark w='100px' h='30px' />
             )}
-            <Box
+            {/* <Box
               w='1px'
               h='20px'
               bg={colorMode === "dark" ? "white" : "gray.700"}
-            />
-            {colorMode === "dark" ? (
+            /> */}
+            {/* {colorMode === "dark" ? (
               <ChakraLogoLight w='82px' h='21px' />
             ) : (
               <ChakraLogoDark w='82px' h='21px' />
-            )}
+            )} */}
           </Stack>
         }
         display='none'

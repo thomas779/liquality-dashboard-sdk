@@ -23,9 +23,6 @@ export default function Footer(props) {
           xl: "start",
         }}
         mb={{ base: "20px", xl: "0px" }}>
-        <Text as='span'>
-          ETHDenver {" "}
-        </Text>
         <Link
           color='blue.400'
           href='https://www.Liquality.io/'
