@@ -65,6 +65,7 @@ export default function HeaderLinks(props) {
         "..." +
         String(accountFromMetaMask).substr(38, 4)
     );
+    // window.location.reload();
   };
 
 
